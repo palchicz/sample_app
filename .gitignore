@@ -16,5 +16,4 @@
 /tmp
 
 # Secret Key for encrypting cookies
-.secret 
-
+.secret

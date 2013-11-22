@@ -17,3 +17,6 @@
 
 # Secret Key for encrypting cookies
 .secret
+
+# Ignore database config
+database.yml

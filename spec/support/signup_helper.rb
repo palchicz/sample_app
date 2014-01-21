@@ -12,7 +12,7 @@ module SignupHelper
         fill_in "Name",     with: VALID_NAME
         fill_in "Email",    with: VALID_EMAIL
         fill_in "Password", with: VALID_PASSWORD
-        fill_in "Password confirmation", with: VALID_PASSWORD
+        fill_in "Confirm Password", with: VALID_PASSWORD
         click_button @submit
     end
 

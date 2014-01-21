@@ -65,6 +65,19 @@ describe "User Pages" do
             it { should have_link('change', href: 'http://gravatar.com/emails') }
         end
 
+        describe "forbidden attributes" do
+            let(:params) do
+                { user: { admin: true, password: user.password,
+                            password_confirmation: user.password } }
+            end
+            before do
+                sign_in user, no_capybara: true
+                patch user_path(user), params
+            end
+
+            specify { expect(user.reload).not_to be_admin }
+        end
+
         describe "with invalid information" do
             before { click_button "Save changes" }
 

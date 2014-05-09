@@ -2,6 +2,24 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
         <%= f.text_area :content, placeholder: "Compose new microposts..." %>
+        <span class="wordcount" id="word_count"/>
     </div>
     <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+            $("#micropost_content").keyup(function() {
+                var count = $("#micropost_content").val().length;
+                var word_text;
+                if (count == 1) {
+                    word_text = count + " character";
+                } else if (count > 1) {
+                    word_text = count + " characters";
+                } else {
+                    word_text = "";
+                }
+                $("#word_count").text(word_text);
+                })
+            })
+</script>
